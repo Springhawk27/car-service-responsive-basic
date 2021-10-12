@@ -1,12 +1,23 @@
-import './App.css';
-import Experts from './Pages/Home/Experts/Experts';
 import Home from './Pages/Home/Home/Home';
-import Services from './Pages/Home/Services/Services';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
